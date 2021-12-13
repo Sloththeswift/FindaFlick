@@ -6,7 +6,7 @@ namespace FindaFlick
     {
         static void Main(string[] args)
         {
-            
+            Mainmenu.RunMainMenu();
         }
     }
 }
