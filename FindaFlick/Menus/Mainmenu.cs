@@ -9,7 +9,7 @@ namespace FindaFlick
 {
     class Mainmenu
     {
-        public static void RunMainMenu()
+        public static async Task RunMainMenu()
         {
             string icon = @" ___                  _         ___   _                   
 (  _`\  _            ( )       (  _`\(_ )  _        ( )    
@@ -31,11 +31,11 @@ Use the arrow keys and enter to navigate the app.
             switch (HighIndex)
             {
                 case 0:
-                    Titlemenu.RunTitleMenu();
+                    await Titlemenu.RunTitleMenu();
                     break;
 
                 case 1:
-                    Idmenu.RunIdMenu();
+                    await ShowMovieId.ShowMovieIds();
                     break;
 
                 case 2:

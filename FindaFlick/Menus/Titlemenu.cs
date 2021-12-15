@@ -8,7 +8,7 @@ namespace FindaFlick
 {
     class Titlemenu
     {
-        public static void RunTitleMenu()
+        public static async Task RunTitleMenu()
         {
             string icon = @" ___                  _         ___   _                   
 (  _`\  _            ( )       (  _`\(_ )  _        ( )    
@@ -29,11 +29,11 @@ Here you can search for movies by title name.
             switch (HighIndex)
             {
                 case 0:
-                    Titlemenu.RunTitleMenu();
+                    await Titlemenu .RunTitleMenu();
                     break;
 
                 case 1:
-                    Mainmenu.RunMainMenu();
+                    await Mainmenu .RunMainMenu();
                     break;
 
                 case 2:

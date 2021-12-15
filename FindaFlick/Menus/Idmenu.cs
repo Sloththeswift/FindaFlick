@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace FindaFlick
 {
     class Idmenu
     {
-        public static void RunIdMenu()
+        public static async Task RunIdMenu()
         {
             string icon = @" ___                  _         ___   _                   
 (  _`\  _            ( )       (  _`\(_ )  _        ( )    
@@ -29,11 +28,11 @@ Here you can search for a movie by ID.
             switch (HighIndex)
             {
                 case 0:
-                    Titlemenu.RunTitleMenu();
+                    await ShowMovieId.ShowMovieIds();
                     break;
 
                 case 1:
-                    Mainmenu.RunMainMenu();
+                    await Mainmenu.RunMainMenu();
                     break;
 
                 case 2:
