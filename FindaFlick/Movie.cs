@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace FindaFlick
 {
-    public class MovieDetailsId
+    public class Movie
     {
+
         public bool adult { get; set; }
         public string backdrop_path { get; set; }
         public object belongs_to_collection { get; set; }
@@ -33,6 +35,17 @@ namespace FindaFlick
         public bool video { get; set; }
         public float vote_average { get; set; }
         public int vote_count { get; set; }
+        public void showMovieResult() 
+        {
+            WriteLine(original_title);
+            WriteLine(overview);
+            WriteLine(runtime);
+            WriteLine(release_date);
+            WriteLine(homepage);
+            WriteLine(vote_average);
+            WriteLine(poster_path);
+            WriteLine(original_language);
+        }
     }
 
     public class Genre
@@ -61,4 +74,6 @@ namespace FindaFlick
         public string iso_639_1 { get; set; }
         public string name { get; set; }
     }
+
+
 }

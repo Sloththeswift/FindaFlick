@@ -12,7 +12,8 @@ namespace FindaFlick
     {
         static async Task Main(string[] args) 
         {
-
+            SearchFunc.setupApi();
+            
             await Mainmenu.RunMainMenu();
         }
     }

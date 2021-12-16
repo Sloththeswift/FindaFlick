@@ -29,7 +29,15 @@ Here you can search for movies by title name.
             switch (HighIndex)
             {
                 case 0:
-                    await Titlemenu .RunTitleMenu();
+                    Console.WriteLine("Enter Title: ");
+                    string title = Console.ReadLine();
+                    SearchResults result = await SearchFunc.MovieTitleTitle(title);
+                    if (result != null && result.results.Any()) 
+                    {
+                        await ChooseResult.ChooseMovie(result);
+                    }
+                    else Console.WriteLine("Sorry, nothing found");
+                    
                     break;
 
                 case 1:
