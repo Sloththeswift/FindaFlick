@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace FindaFlick
 {
-    class Mainmenu
+    class ChooseResult
     {
-        public static async Task RunMainMenu()
+
+        public static async Task ChooseMovie(SearchResults result) 
         {
             string icon = @" ___                  _         ___   _                   
 (  _`\  _            ( )       (  _`\(_ )  _        ( )    
@@ -19,32 +22,26 @@ namespace FindaFlick
 (_)    (_)(_) (_)`\__,_)`\__,_)(_)   (___)(_)`\____)(_) (_)
                                                            
                                                            
-Welcome to FindaFlick, let's find some movie trivia for you!
-Use the arrow keys and enter to navigate the app.
+Here you can search for a movie by ID.
 
 
 ";
-            
-            string[] upDown= { "Search movie by title name.", "Search movie by ID.", "Exit app." };
+            List<string> resultList = new List<string>();
+            foreach (Movie m in result.results) 
+            {
+                resultList.Add(m.title);
+            }
+            string[] upDown = resultList.ToArray();
             MenuSkeleton menu = new MenuSkeleton(icon, upDown);
             int HighIndex = menu.Nav();
-            switch (HighIndex)
-            {
-                case 0:
-                    await Titlemenu.RunTitleMenu();
-                    break;
+            Clear();
+            Movie movie = result.results[HighIndex];
+            result.results[HighIndex] = await SearchFunc.SearchById(movie.id);
+            result.results[HighIndex].showMovieResult();
+            ReadKey();
 
-                case 1:
-                    await MovieIdMenu.RunMenu();
-                    break;
-
-                case 2:
-                    Environment.Exit(0);
-                    break;
-
-            }
-            
+        
 
         }
-    }
+}
 }

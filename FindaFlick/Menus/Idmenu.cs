@@ -28,7 +28,7 @@ Here you can search for a movie by ID.
             switch (HighIndex)
             {
                 case 0:
-                    await ShowMovieId.ShowMovieIds();
+                    await MovieIdMenu.RunMenu();
                     break;
 
                 case 1:
