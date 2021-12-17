@@ -33,13 +33,14 @@ Here you can search for a movie by ID.
             WriteLine(icon);
             
            
-            Console.WriteLine("Enter ID: ");
+            Console.WriteLine("Enter ID number: ");
             try 
             {
                 int id = Convert.ToInt32(Console.ReadLine());
                 Movie movieResult = await SearchFunc.SearchById(id);
                 if (movieResult != null)
                 {
+                    Clear();
                     movieResult.showMovieResult();
 
                 }
@@ -50,7 +51,7 @@ Here you can search for a movie by ID.
             }
             catch 
             {
-                Console.WriteLine("Not an int sir");
+                Console.WriteLine("Not a number...");
             }
             
             
