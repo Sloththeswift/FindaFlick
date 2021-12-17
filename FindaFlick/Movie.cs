@@ -37,14 +37,41 @@ namespace FindaFlick
         public int vote_count { get; set; }
         public void showMovieResult() 
         {
-            WriteLine(original_title);
-            WriteLine(overview);
-            WriteLine(runtime);
-            WriteLine(release_date);
-            WriteLine(homepage);
-            WriteLine(vote_average);
-            WriteLine(poster_path);
-            WriteLine(original_language);
+            WriteLine(@" ___                  _         ___   _                   
+(  _`\  _            ( )       (  _`\(_ )  _        ( )    
+| (_(_)(_)  ___     _| |   _ _ | (_(_)| | (_)   ___ | |/') 
+|  _)  | |/' _ `\ /'_` | /'_` )|  _)  | | | | /'___)| , <  
+| |    | || ( ) |( (_| |( (_| || |    | | | |( (___ | |\`\ 
+(_)    (_)(_) (_)`\__,_)`\__,_)(_)   (___)(_)`\____)(_) (_)
+                                                           
+                                                           
+");
+
+            WriteLine($"Original Title: {original_title}");
+            WriteLine();
+            WriteLine($"Summary: {overview}");
+            WriteLine();
+            WriteLine($"Runtime: {runtime} minutes.");
+            WriteLine();
+            WriteLine($"Release date: {release_date}");
+            WriteLine();
+            if (homepage == "") 
+            {
+                WriteLine("Homepage not found");
+            }
+            else 
+            {
+                WriteLine($"Homepage: {homepage}");
+
+            }
+            
+            WriteLine();
+            WriteLine($"Voting average: {vote_average}");
+            WriteLine();
+            WriteLine($"Poster path: https://www.themoviedb.org/t/p/w1280{poster_path}");
+            WriteLine();
+            WriteLine($"Original language: {original_language}");
+            
         }
     }
 

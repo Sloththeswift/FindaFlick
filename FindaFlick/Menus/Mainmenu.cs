@@ -25,13 +25,13 @@ Use the arrow keys and enter to navigate the app.
 
 ";
             
-            string[] upDown= { "Search movie by title name.", "Search movie by ID.", "Exit app." };
+            string[] upDown= { "Search movie by title-name.", "Search movie by ID-number.", "Exit app." };
             MenuSkeleton menu = new MenuSkeleton(icon, upDown);
             int HighIndex = menu.Nav();
             switch (HighIndex)
             {
                 case 0:
-                    await Titlemenu.RunTitleMenu();
+                    await Titlemenu.SearchTitle();
                     break;
 
                 case 1:

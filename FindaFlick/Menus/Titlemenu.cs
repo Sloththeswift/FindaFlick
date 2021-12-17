@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using static System.Console;
 
 namespace FindaFlick
 {
@@ -23,7 +26,7 @@ Here you can search for movies by title name.
 
 ";
 
-            string[] upDown = { "Search movie by title name.", "Return to Mainmenu", "Exit app." };
+            string[] upDown = { "Search movie by title name.", "Return to mainmenu", "Exit app." };
             MenuSkeleton menu = new MenuSkeleton(icon, upDown);
             int HighIndex = menu.Nav();
             switch (HighIndex)
@@ -31,12 +34,16 @@ Here you can search for movies by title name.
                 case 0:
                     Console.WriteLine("Enter Title: ");
                     string title = Console.ReadLine();
-                    SearchResults result = await SearchFunc.MovieTitleTitle(title);
+                    SearchResults result = await SearchFunc.MovieTitle(title);
                     if (result != null && result.results.Any()) 
                     {
                         await ChooseResult.ChooseMovie(result);
                     }
-                    else Console.WriteLine("Sorry, nothing found");
+                    else                     
+                        Console.WriteLine("Sorry, nothing found");
+                        Console.ReadKey();
+                        await Titlemenu.RunTitleMenu();
+                    
                     
                     break;
 
@@ -50,6 +57,40 @@ Here you can search for movies by title name.
 
             }
 
+            
+
+
+
+
+        }
+
+        public static async Task SearchTitle()
+        {
+            string icon = @" ___                  _         ___   _                   
+(  _`\  _            ( )       (  _`\(_ )  _        ( )    
+| (_(_)(_)  ___     _| |   _ _ | (_(_)| | (_)   ___ | |/') 
+|  _)  | |/' _ `\ /'_` | /'_` )|  _)  | | | | /'___)| , <  
+| |    | || ( ) |( (_| |( (_| || |    | | | |( (___ | |\`\ 
+(_)    (_)(_) (_)`\__,_)`\__,_)(_)   (___)(_)`\____)(_) (_)
+                                                           
+                                                           
+Here you can search for movies by title name.
+
+
+";
+            Clear();
+            WriteLine(icon);
+            WriteLine("Enter Title: ");
+            string title = Console.ReadLine();
+            SearchResults result = await SearchFunc.MovieTitle(title);
+            if (result != null && result.results.Any())
+            {
+                await ChooseResult.ChooseMovie(result);
+            }
+            else Console.WriteLine("Sorry, nothing found");
+            WriteLine("Press any key to return to menu");
+            ReadKey();
+            await Titlemenu.RunTitleMenu();
 
         }
     }

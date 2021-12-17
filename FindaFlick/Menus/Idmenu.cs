@@ -22,7 +22,7 @@ Here you can search for a movie by ID.
 
 ";
 
-            string[] upDown = { "Search movie by ID", "Return to mainmenu", "Exit app" };
+            string[] upDown = { "Search movie by ID-number", "Return to mainmenu", "Exit app" };
             MenuSkeleton menu = new MenuSkeleton(icon, upDown);
             int HighIndex = menu.Nav();
             switch (HighIndex)
