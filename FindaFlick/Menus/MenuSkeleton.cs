@@ -1,41 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace FindaFlick
 {
-    class MenuSkeleton
+    internal class MenuSkeleton
     {
         private int HighIndex;
         private string[] Choices;
         private string Evoke;
 
-        public MenuSkeleton(string evoke, string[] choices) 
+        public MenuSkeleton(string evoke, string[] choices)
         {
             Evoke = evoke;
             Choices = choices;
             HighIndex = 0;
         }
 
-
-        private void ShowChoices() 
+        private void ShowChoices()
         {
             WriteLine(Evoke);
-            for (int i = 0; i < Choices.Length; i++) 
+            for (int i = 0; i < Choices.Length; i++)
             {
                 string markedChoice = Choices[i];
                 string prefix;
 
-                if (i == HighIndex) 
+                if (i == HighIndex)
                 {
                     prefix = "■";
-
                 }
-
-                else 
+                else
                 {
                     prefix = " ";
                 }
@@ -44,7 +37,7 @@ namespace FindaFlick
             }
         }
 
-        public int Nav() 
+        public int Nav()
         {
             ConsoleKey keyPushed;
             do
@@ -73,6 +66,5 @@ namespace FindaFlick
             } while (keyPushed != ConsoleKey.Enter);
             return HighIndex;
         }
-
     }
 }
