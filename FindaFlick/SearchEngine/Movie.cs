@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
+﻿using static System.Console;
 
 namespace FindaFlick
 {
     public class Movie
     {
-
         public bool adult { get; set; }
         public string backdrop_path { get; set; }
         public object belongs_to_collection { get; set; }
@@ -35,16 +29,16 @@ namespace FindaFlick
         public bool video { get; set; }
         public float vote_average { get; set; }
         public int vote_count { get; set; }
-        public void showMovieResult() 
+
+        public void showMovieResult()
         {
-            WriteLine(@" ___                  _         ___   _                   
-(  _`\  _            ( )       (  _`\(_ )  _        ( )    
-| (_(_)(_)  ___     _| |   _ _ | (_(_)| | (_)   ___ | |/') 
-|  _)  | |/' _ `\ /'_` | /'_` )|  _)  | | | | /'___)| , <  
-| |    | || ( ) |( (_| |( (_| || |    | | | |( (___ | |\`\ 
+            WriteLine(@" ___                  _         ___   _
+(  _`\  _            ( )       (  _`\(_ )  _        ( )
+| (_(_)(_)  ___     _| |   _ _ | (_(_)| | (_)   ___ | |/')
+|  _)  | |/' _ `\ /'_` | /'_` )|  _)  | | | | /'___)| , <
+| |    | || ( ) |( (_| |( (_| || |    | | | |( (___ | |\`\
 (_)    (_)(_) (_)`\__,_)`\__,_)(_)   (___)(_)`\____)(_) (_)
-                                                           
-                                                           
+
 ");
 
             WriteLine($"Original Title: {original_title}");
@@ -55,23 +49,21 @@ namespace FindaFlick
             WriteLine();
             WriteLine($"Release date: {release_date}");
             WriteLine();
-            if (homepage == "") 
+            if (homepage == "")
             {
                 WriteLine("Homepage not found");
             }
-            else 
+            else
             {
                 WriteLine($"Homepage: {homepage}");
-
             }
-            
+
             WriteLine();
             WriteLine($"Voting average: {vote_average}");
             WriteLine();
             WriteLine($"Poster path: https://www.themoviedb.org/t/p/w1280{poster_path}");
             WriteLine();
             WriteLine($"Original language: {original_language}");
-            
         }
     }
 
@@ -101,6 +93,4 @@ namespace FindaFlick
         public string iso_639_1 { get; set; }
         public string name { get; set; }
     }
-
-
 }

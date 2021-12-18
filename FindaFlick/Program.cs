@@ -1,19 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace FindaFlick
 {
-    class Program
+    internal class Program
     {
-        static async Task Main(string[] args) 
+        private static async Task Main(string[] args)
         {
             SearchFunc.setupApi();
-            
+
             await Mainmenu.RunMainMenu();
         }
     }
