@@ -4,6 +4,8 @@ A console application used to search for information about movies.
 ***
 An api key from <https://www.themoviedb.org/documentation/api> is required to use this application.
 The user will be asked at startup for it.
+***
+
 ![Finda Flickimage2](FindaFlickimage2.jpg)
 ## How it works
 By using two separate api calls the application can search for movies either by an id-number or by searching for the title of a movie.
